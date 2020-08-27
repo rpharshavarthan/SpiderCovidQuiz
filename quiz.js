@@ -135,10 +135,10 @@ function previous() {
 }
 function nav(p) {
   i = parseInt(p);
-  console.log(i);
-  console.log(typeof i);
   if (i == arr.length - 1) {
     document.getElementById("next").innerHTML = "FINISH";
+  } else {
+    document.getElementById("next").innerHTML = "NEXT";
   }
   showQuestion(i);
 }
