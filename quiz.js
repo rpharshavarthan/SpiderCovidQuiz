@@ -97,7 +97,7 @@ function next() {
   if (i < arr.length - 1) {
     i += 1;
     if (i == arr.length - 1) {
-      document.getElementById("next").innerHTML = "finish";
+      document.getElementById("next").innerHTML = "FINISH";
     }
   } else if (i == arr.length - 1) {
     score();
@@ -109,7 +109,7 @@ function previous() {
     i -= 1;
   }
   if (i < arr.length - 1) {
-    document.getElementById("next").innerHTML = "next";
+    document.getElementById("next").innerHTML = "NEXT";
   }
   showQuestion(i);
 }
