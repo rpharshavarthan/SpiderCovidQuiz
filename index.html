@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID19 QUIZ</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="title">
+      <h1>Covid-19 quiz</h1>
+    </div>
+    <div id="start-page">
+      <h2>ENTER YOUR NAME</h2>
+      <div class="userinfo">
+      <form class="userform" autocomplete="off" id="userForm">
+        <input type="text" name="username" id="username" required>
+        <button type="submit">START QUIZ!</button>
+      </form>
+      </div>
+    </div>
+    <div id="navbar">
+      <div class="nav" id="q0" onclick="nav(this.id[1])">1</div>
+      <div class="nav" id="q1" onclick="nav(this.id[1])">2</div>
+      <div class="nav" id="q2" onclick="nav(this.id[1])">3</div>
+      <div class="nav" id="q3" onclick="nav(this.id[1])">4</div>
+      <div class="nav" id="q4" onclick="nav(this.id[1])">5</div>
+      <div class="nav" id="q5" onclick="nav(this.id[1])">6</div>
+      <div class="nav" id="q6" onclick="nav(this.id[1])">7</div>
+      <div class="nav" id="q7" onclick="nav(this.id[1])">8</div>
+      <div class="nav" id="q8" onclick="nav(this.id[1])">9</div>
+      <div class="nav" id="q9" onclick="nav(this.id[1])">10</div>
+</div>
+    <div id="scoreCard">
+    <div id="Score"></div>
+    </div>
+    <div id="quiz-box">
+      <div id="ques"></div>
+      <div class="row" id="0" onclick="checkAns(this.id)"></div>
+      <div class="row" id="1" onclick="checkAns(this.id)"></div>
+      <div class="row" id="2" onclick="checkAns(this.id)"></div>
+      <div class="row" id="3" onclick="checkAns(this.id)"></div>
+      <button type="button" id="prev" onclick="previous()">PREVIOUS</button>
+      <button type="button" id="next" onclick="next()">NEXT</button>
+    </div>
+    <!--<button type="button" id="prev" onclick="previous()">PREVIOUS</button>
+      <button type="button" id="next" onclick="next()">NEXT</button> -->
+    <div id="bottom">MADE WITH &#128151 BY HARSHA</div>
+    <script src="quiz.js"></script>
+  </body>
+</html>

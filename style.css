@@ -1,0 +1,172 @@
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(un.jpg);
+  background-attachment: fixed;
+}
+#title {
+  font-family: "Poiret One", cursive;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1.2em;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.4em;
+}
+#quiz-box {
+  height: 65vh;
+  width: 75vw;
+  display: grid;
+  margin: 1.5em auto 1em;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+.row {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Poiret One", cursive;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  color: white;
+  text-transform: uppercase;
+  padding: 0em;
+}
+#ques {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: rgba(0, 0, 0);
+  font-family: "Poiret One", cursive;
+  text-align: center;
+  letter-spacing: 0.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35em;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px;
+}
+.row:hover {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  font-size: 1.2em !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+button {
+  padding: 0.5em;
+  font-family: "Poiret One", cursive;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: bolder;
+  font-size: 1.1em;
+  letter-spacing: 0.2em;
+  text-align: center;
+  background-color: #bec3ad;
+  color: black;
+  border: none;
+}
+button:active {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+#bottom {
+  font-family: "Poiret One", cursive;
+  font-family: "Lexend Deca", sans-serif;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5em;
+  margin-top: 3em;
+  margin-bottom: 0em;
+}
+#scoreCard {
+  width: 75vw;
+  height: 65vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 2.3em;
+  margin: auto;
+  text-align: center;
+  color: black;
+  letter-spacing: 0.3em;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#navbar {
+  display: grid;
+  height: 5vh;
+  width: 75vw;
+  margin: auto;
+  grid-template-columns:
+    minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)
+    minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0.5em;
+  margin-bottom: 0px;
+}
+.nav {
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: "Lexend Deca", sans-serif;
+  font-family: "Poiret One", cursive;
+  font-weight: bolder;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  cursor: pointer;
+}
+.nav:hover {
+  font-size: 1.5em;
+}
+#start-page {
+  height: 65vh;
+  width: 75vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.5em;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  float: none;
+}
+.userinfo {
+  width: 50%;
+}
+.userform input,
+.userform button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.userform input {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 0.5em;
+}
+.userform input:focus,
+.userform button:focus {
+  outline: none;
+}
+.userform button {
+  border-radius: 100px;
+  color: white;
+  background-color: black;
+}
