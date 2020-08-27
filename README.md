@@ -1,2 +1,2 @@
 # SpiderCovidQuiz
-Click Here(https://rpharshavarthan.github.io/SpiderCovidQuiz/)
+[Click Here](https://rpharshavarthan.github.io/SpiderCovidQuiz/)
