@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID19 QUIZ</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="title">
+      <h1>Covid-19 quiz</h1>
+    </div>
+    <div id="scoreCard">
+    <div id="Score">YOUR SCORE</div>
+    </div>
+    <div id="quiz-box">
+      <div id="ques"></div>
+      <div class="row" id="0" onclick="checkAns(this.id)"></div>
+      <div class="row" id="1" onclick="checkAns(this.id)"></div>
+      <div class="row" id="2" onclick="checkAns(this.id)"></div>
+      <div class="row" id="3" onclick="checkAns(this.id)"></div>
+      <button type="button" id="prev" onclick="previous()">PREVIOUS</button>
+      <button type="button" id="next" onclick="next()">NEXT</button>
+    </div>
+    <!--<button type="button" id="prev" onclick="previous()">PREVIOUS</button>
+      <button type="button" id="next" onclick="next()">NEXT</button> -->
+    <div id="bottom">MADE WITH &#128151 BY HARSHA</div>
+    <script src="quiz.js"></script>
+  </body>
+</html>
