@@ -144,6 +144,7 @@ button:active {
 #entername {
   font-size: 1.3em;
   margin: 0.75em auto;
+  text-align: center;
 }
 .userinfo {
   width: 50%;
