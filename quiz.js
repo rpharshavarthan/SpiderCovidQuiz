@@ -1,6 +1,7 @@
 window.onload = function () {
   document.getElementById("navbar").style.display = "none";
   document.getElementById("quiz-box").style.display = "none";
+  document.getElementById("timer").style.display = "none";
 };
 var arr = [
   {
@@ -100,8 +101,21 @@ while (array.length < 10) {
     array.push(r);
   }
 }
-console.log(array);
-
+var mytime;
+const startingMinutes = 2;
+var totalSeconds = startingMinutes * 60;
+function timer() {
+  var minutes = Math.floor(totalSeconds / 60);
+  var seconds = totalSeconds % 60;
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  document.getElementById("timer").innerHTML = `${minutes}:${seconds}`;
+  totalSeconds--;
+  if (minutes == 0 && seconds == 0) {
+    score();
+  }
+}
 var user;
 var form = document.getElementById("userForm");
 form.addEventListener("submit", userName);
@@ -111,6 +125,8 @@ function userName(event) {
   document.getElementById("start-page").style.display = "none";
   document.getElementById("navbar").style.display = "grid";
   document.getElementById("quiz-box").style.display = "grid";
+  document.getElementById("timer").style.display = "block";
+  mytime = setInterval(timer, 1000);
   next();
 }
 function next() {
@@ -212,4 +228,5 @@ function score() {
   document.getElementById("next").style.display = "none";
   document.getElementById("prev").style.display = "none";
   document.getElementById("navbar").style.display = "none";
+  document.getElementById("timer").style.display = "none";
 }
