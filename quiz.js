@@ -2,6 +2,7 @@ window.onload = function () {
   document.getElementById("navbar").style.display = "none";
   document.getElementById("quiz-box").style.display = "none";
   document.getElementById("timer").style.display = "none";
+  document.getElementById("playagain").style.display = "none";
 };
 var arr = [
   {
@@ -92,6 +93,7 @@ var arr = [
 var quesDone = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
 var userAnswer = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
 var correctAnswer = [3, 0, 3, 2, 2, 2, 2, 0, 3, 0];
+var scores = [];
 var i = -1;
 var points = 0;
 var array = [];
@@ -101,7 +103,7 @@ while (array.length < 10) {
     array.push(r);
   }
 }
-var mytime;
+var t;
 const startingMinutes = 2;
 var totalSeconds = startingMinutes * 60;
 function timer() {
@@ -113,8 +115,16 @@ function timer() {
   document.getElementById("timer").innerHTML = `${minutes}:${seconds}`;
   totalSeconds--;
   if (minutes == 0 && seconds == 0) {
-    score();
+    quizOver();
   }
+}
+function runTime() {
+  t = setInterval(timer, 1000);
+}
+function stopTime() {
+  console.log("yes");
+  clearInterval(t);
+  totalSeconds = startingMinutes * 60;
 }
 var user;
 var form = document.getElementById("userForm");
@@ -122,11 +132,11 @@ form.addEventListener("submit", userName);
 function userName(event) {
   event.preventDefault();
   user = document.getElementById("username").value;
-  document.getElementById("start-page").style.display = "none";
-  document.getElementById("navbar").style.display = "grid";
-  document.getElementById("quiz-box").style.display = "grid";
-  document.getElementById("timer").style.display = "block";
-  mytime = setInterval(timer, 1000);
+  displayQuizPage();
+  playerinfo = { name: "", score: 0 };
+  scores.push(playerinfo);
+  scores[scores.length - 1].name = user;
+  runTime();
   next();
 }
 function next() {
@@ -136,7 +146,7 @@ function next() {
       document.getElementById("next").innerHTML = "FINISH";
     }
   } else if (i == arr.length - 1) {
-    score();
+    quizOver();
   }
   showQuestion(i);
 }
@@ -174,7 +184,6 @@ function showQuestion(i) {
       document.getElementById(k).removeAttribute("onclick");
       notAttempted(k);
     } else if (quesDone[i] == -1 && userAnswer[i] == -1) {
-      console.log("3rd");
       document.getElementById(k).innerHTML = arr[array[i]].options[k];
       document.getElementById(k).setAttribute("onclick", "checkAns(this.id)");
       notAttempted(k);
@@ -194,7 +203,52 @@ function checkAns(id) {
     wrong(id);
   }
 }
-
+function quizOver() {
+  displayScorePage();
+  stopTime();
+  document.getElementById("timer").innerHTML = "START";
+  scores[scores.length - 1].score = points;
+  scores.sort(function (a, b) {
+    return b.score - a.score;
+  });
+  for (var i = 0; i < scores.length; i++) {
+    var table = document.getElementById("scoretable");
+    var row = table.insertRow(i + 1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = i + 1;
+    cell2.innerHTML = scores[i].name.toUpperCase();
+    cell3.innerHTML = scores[i].score;
+  }
+}
+function playAgain() {
+  displayStartPage();
+  points = 0;
+  i = -1;
+  array = [];
+  quesDone = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+  userAnswer = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+  document.getElementById("username").value = "";
+  document.getElementById("next").innerHTML = "NEXT";
+  for (var k = 0; k < arr.length; k++) {
+    document.getElementById(`q${k}`).style.backgroundColor =
+      "rgba(255, 255, 255, 0.5)";
+    document.getElementById(`q${k}`).style.color = "black";
+  }
+  for (var j = 0; j < scores.length; j++) {
+    document.getElementById("scoretable").deleteRow(1);
+  }
+  randomArray();
+}
+function randomArray() {
+  while (array.length < 10) {
+    var r = Math.floor(Math.random() * 10);
+    if (array.indexOf(r) === -1) {
+      array.push(r);
+    }
+  }
+}
 function right(id) {
   document.getElementById(id).style.fontSize = "1.2em";
   document.getElementById(id).style.fontWeight = "600";
@@ -204,7 +258,6 @@ function right(id) {
     document.getElementById(i).removeAttribute("onclick");
   }
 }
-
 function wrong(id) {
   document.getElementById(id).style.fontSize = "1.2em";
   document.getElementById(id).style.fontWeight = "600";
@@ -220,13 +273,21 @@ function notAttempted(id) {
   document.getElementById(id).style.color = "white";
   document.getElementById(id).style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 }
-function score() {
+function displayQuizPage() {
+  document.getElementById("start-page").style.display = "none";
+  document.getElementById("navbar").style.display = "grid";
+  document.getElementById("quiz-box").style.display = "grid";
+  document.getElementById("timer").style.display = "block";
+}
+function displayScorePage() {
   document.getElementById("scoreCard").style.display = "flex";
-  document.getElementById("Score").innerHTML =
-    `${user.toUpperCase()}, YOUR SCORE: ` + points + "/" + arr.length;
+  document.getElementById("playagain").style.display = "block";
   document.getElementById("quiz-box").style.display = "none";
-  document.getElementById("next").style.display = "none";
-  document.getElementById("prev").style.display = "none";
   document.getElementById("navbar").style.display = "none";
   document.getElementById("timer").style.display = "none";
+}
+function displayStartPage() {
+  document.getElementById("scoreCard").style.display = "none";
+  document.getElementById("playagain").style.display = "none";
+  document.getElementById("start-page").style.display = "flex";
 }
