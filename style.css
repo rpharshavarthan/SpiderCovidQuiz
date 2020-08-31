@@ -94,7 +94,6 @@ button:active {
   justify-content: center;
   align-items: center;
   font-family: "Lexend Deca", sans-serif;
-  font-size: 2.3em;
   margin: auto;
   text-align: center;
   color: black;
@@ -190,6 +189,28 @@ button:active {
   position: absolute;
   top: 0.5em;
   right: 0.5em;
+}
+table {
+  width: 80%;
+  margin: auto;
+  font-family: "Poiret One", cursive;
+  font-size: 1.2em;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+table,
+th,
+td {
+  text-align: left;
+  height: 1em;
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+}
+#playagain {
+  display: block;
+  font-size: 1.3em;
+  padding: 0.2em 1em;
+  margin: 1em auto;
 }
 
 @media screen and (max-width: 920px) {
